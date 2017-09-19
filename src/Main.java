@@ -6,16 +6,9 @@ public class Main {
 
         int num = number.nextInt();
 
-        nQueen(num);
+        nQueen(num, new int [num][num]);
     }
-    public static void nQueen(int num){
-
-    }
-}
-class Board{
-    private int [][] board;
-
-    public Board(int n){
-        board = new int [n][n];
+    public static void nQueen(int num, int[][] a){
+        
     }
 }
