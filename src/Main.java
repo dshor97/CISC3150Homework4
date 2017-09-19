@@ -9,6 +9,6 @@ public class Main {
         nQueen(num, new int [num][num]);
     }
     public static void nQueen(int num, int[][] a){
-
+        
     }
 }
