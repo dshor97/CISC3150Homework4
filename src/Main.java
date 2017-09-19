@@ -14,7 +14,8 @@ public class Main {
 }
 class Board{
     private int [][] board;
+
     public Board(int n){
-        board = new int[n][n];
+        board = new int [n][n];
     }
 }
