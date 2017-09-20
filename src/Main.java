@@ -13,8 +13,11 @@ public class Main {
         int[][] board = new int[num][num];
         printBoard(board,num);
 
-        board = addQueen(1,1,num,board);
+        board = addQueen(1,5,num,board);
 
+        printBoard(board,num);
+
+        board = addQueen(0,1,num,board);
         printBoard(board,num);
     }
     public static void printBoard(int[][] board, int num){
@@ -23,7 +26,7 @@ public class Main {
                 if(board[i][j] == 0) {
                     System.out.print(" O ");
                 }else if(board[i][j] < 0) {
-                    System.out.print(" X ");
+                    System.out.print(" x ");
                 }else{
                     System.out.print(" Q ");
                 }
@@ -46,12 +49,10 @@ public class Main {
             }
         }
         int row1 = x, col1 = y;
-        while(row1 > 0 || col1 > 0){
+        while(row1 > 0 && col1 > 0){
             --row1;
             --col1;
         }
-
-        System.out.println(row1 + " " + col1);
 
         while(row1 < size && col1 < size){
             if(row1 != x && col1 != y) {
@@ -62,7 +63,21 @@ public class Main {
             }
         }
 
-        //copy a into temp
+        int row2 = x,col2 = y;
+        while(row2 > 0 && col2 < size -1){
+            --row2;
+            ++col2;
+        }
+
+        while(row2 < size && col2 >= 0){
+            if(row2 != x && col2 != y) {
+                a[row2++][col2--] -= 1;
+            }else{
+                row2++;
+                col2--;
+            }
+        }
+
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
                 temp[i][j] = a[i][j];
