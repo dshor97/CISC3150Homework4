@@ -45,12 +45,21 @@ public class Main {
                 a[i][y] -= 1;
             }
         }
-        int row = x, col = y;
-        while(row !=0 || col!=0){
-            row--;
-            col--;
+        int row1 = x, col1 = y;
+        while(row1 != 0 || col1 != 0){
+            row1--;
+            col1--;
         }
-
+        while(row1 < size && col1 < size){
+            if(row1 != x && col1 != y) {
+                a[row1++][col1++] -= 1;
+            }else{
+                row1++;
+                col1++;
+            }
+        }
+        int row2 = x, col2 = y;
+        
         //copy a into temp
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
