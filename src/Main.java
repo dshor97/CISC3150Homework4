@@ -46,10 +46,13 @@ public class Main {
             }
         }
         int row1 = x, col1 = y;
-        while(row1 != 0 || col1 != 0){
-            row1--;
-            col1--;
+        while(row1 > 0 || col1 > 0){
+            --row1;
+            --col1;
         }
+
+        System.out.println(row1 + " " + col1);
+
         while(row1 < size && col1 < size){
             if(row1 != x && col1 != y) {
                 a[row1++][col1++] -= 1;
@@ -58,7 +61,28 @@ public class Main {
                 col1++;
             }
         }
+
         int row2 = x, col2 = y;
+
+        while(row2 > 0 || col2 < (size -1)){
+            --row2;
+            ++col2;
+        }
+
+        System.out.println(row2 + " " + col2);
+
+        /*
+        while(row2 < size && col2 >=0){
+            if(row2 != x && col2 != y){
+                a[row2++][col2--] -= 1;
+            }else{
+                row2++;
+                col2--;
+            }
+        }
+        */
+
+
 
         //copy a into temp
         for(int i = 0; i < size; i++){
