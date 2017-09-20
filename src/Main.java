@@ -59,7 +59,7 @@ public class Main {
             }
         }
         int row2 = x, col2 = y;
-        
+
         //copy a into temp
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
