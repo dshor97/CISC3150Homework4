@@ -62,28 +62,6 @@ public class Main {
             }
         }
 
-        int row2 = x, col2 = y;
-
-        while(row2 > 0 || col2 < (size -1)){
-            --row2;
-            ++col2;
-        }
-
-        System.out.println(row2 + " " + col2);
-
-        /*
-        while(row2 < size && col2 >=0){
-            if(row2 != x && col2 != y){
-                a[row2++][col2--] -= 1;
-            }else{
-                row2++;
-                col2--;
-            }
-        }
-        */
-
-
-
         //copy a into temp
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
