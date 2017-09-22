@@ -13,7 +13,7 @@ public class Main {
         int[][] board = new int[num][num];
         printBoard(board,num);
 
-        board = addQueen(1,5,num,board);
+        board = addQueen(1,3,num,board);
 
         printBoard(board,num);
 
@@ -44,7 +44,7 @@ public class Main {
             }
         }
         for(int i = 0;i < size;i++){
-            if(i!= x){
+            if(i!= x && a[i][y] != 1){
                 a[i][y] -= 1;
             }
         }
