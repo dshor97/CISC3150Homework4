@@ -108,9 +108,11 @@ class Solutions{
     }
 
     public String toString() {
-        System.out.println("Solution: ");
+        String a = new String();
+        a += "Solution: \n";
         for(int i = 0; i<pos.length; i++){
-            System.out.print(pos[i] + " ");
+            a += pos[i] + " ";
         }
+        return a;
     }
 }
