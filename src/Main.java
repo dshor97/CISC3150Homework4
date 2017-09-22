@@ -11,17 +11,11 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num){
-        int[][] board = new int[num][num];
 
-        printBoard(board,num);
-
-        board = addQueen(1,3,num,board);
-
-        printBoard(board,num);
-
-        board = addQueen(0,1,num,board);
-        printBoard(board,num);
     }
+    
+
+
     public static void printBoard(int[][] board, int num){
         for(int i = 0; i<num; i++){
             for(int j = 0;j<num;j++){
