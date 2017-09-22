@@ -92,11 +92,11 @@ class Position{
         return a;
     }
 }
-class Solutions{
+class Solution{
     Position[] pos;
     int size;
 
-    Solutions(int size){
+    Solution(int size){
         this.size = size;
         pos = new Position[size];
     }
@@ -109,4 +109,8 @@ class Solutions{
         }
         return a;
     }
+}
+class Solutions{
+    ArrayList<Solution> solutions = new ArrayList<Solution>();
+    
 }
