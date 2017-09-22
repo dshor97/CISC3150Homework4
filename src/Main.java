@@ -13,7 +13,7 @@ public class Main {
     public static void nQueen(int num){
 
     }
-    
+
 
 
     public static void printBoard(int[][] board, int num){
