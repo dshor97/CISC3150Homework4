@@ -103,6 +103,7 @@ class Solutions{
     int size;
 
     Solutions(int size){
+        this.size = size;
         pos = new Position[size];
     }
 
