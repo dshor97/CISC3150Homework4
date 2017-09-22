@@ -11,7 +11,7 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num) {
-
+        
     }
 
 
