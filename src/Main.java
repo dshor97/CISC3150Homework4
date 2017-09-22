@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +12,7 @@ public class Main {
     }
     public static void nQueen(int num){
         int[][] board = new int[num][num];
+
         printBoard(board,num);
 
         board = addQueen(1,3,num,board);
@@ -84,5 +86,30 @@ public class Main {
             }
         }
         return temp;
+    }
+}
+class Position{
+    private int x;
+    private int y;
+
+    public String toString(Position position){
+        String a = new String();
+        a += "( " + x + "," + y + " )";
+        return a;
+    }
+}
+class Solutions{
+    Position[] pos;
+    int size;
+
+    Solutions(int size){
+        pos = new Position[size];
+    }
+
+    public String toString() {
+        System.out.println("Solution: ");
+        for(int i = 0; i<pos.length; i++){
+            System.out.print(pos[i] + " ");
+        }
     }
 }
