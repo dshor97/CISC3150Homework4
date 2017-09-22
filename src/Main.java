@@ -10,7 +10,7 @@ public class Main {
 
         nQueen(num);
     }
-    public static void nQueen(int num){
+    public static void nQueen(int num) {
 
     }
 
@@ -82,11 +82,12 @@ public class Main {
         return temp;
     }
 }
+
 class Position{
     private int x;
     private int y;
 
-    public String toString(Position position){
+    public String toString(){
         String a = new String();
         a += "( " + x + "," + y + " )";
         return a;
@@ -112,5 +113,4 @@ class Solution{
 }
 class Solutions{
     ArrayList<Solution> solutions = new ArrayList<Solution>();
-    
 }
