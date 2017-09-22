@@ -44,7 +44,7 @@ public class Main {
             }
         }
         for(int i = 0;i < size;i++){
-            if(i!= x && a[i][y] != 1){
+            if(i!= x){
                 a[i][y] -= 1;
             }
         }
