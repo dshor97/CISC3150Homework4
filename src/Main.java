@@ -12,16 +12,24 @@ public class Main {
     public static void nQueen(int num) {
         Queue<Board> que = new LinkedList<Board>();
         ArrayList<Board> solutions = new ArrayList<Board>();
-        que.add(new Board(num);
+        que.add(new Board(num));
         int i = 0;
         while(i<num){
-            Board b = que.remove();
-            for(int j=0;j<num;j++){
-                
+            while(!que.isEmpty()) {
+                Board b = que.remove();
+                for (int j = 0; j < num; j++) {
+                    if (b.board[i][j] == 0) {
+                        solutions.add(b.addQueen(i, j, num, b.board));
+                    }
+                }
             }
+            int j = 0;
+            while (!solutions.isEmpty()) {
+                que.add(solutions.remove(j));
+                j++;
+            }
+            i++;
         }
-
-
     }
 
 }
