@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args){
@@ -11,15 +12,19 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num) {
-        int[][] board = new int[num][num];
-        printBoard(board);
+        Stack<Board> stk = new Stack<Board>();
 
 
     }
 
+}
+class Board{
+    int[][] board;
 
-
-    public static void printBoard(int[][] board){
+    Board(int num){
+        board = new int[num][num];
+    }
+    public void printBoard(int[][] board){
         for(int i = 0; i<board.length; i++){
             for(int j = 0;j<board.length;j++){
                 if(board[i][j] == 0) {
@@ -34,7 +39,7 @@ public class Main {
         }
         System.out.println();
     }
-    public static int[][] addQueen(int x, int y,int size, int a [][]){
+    public void addQueen(int x, int y,int size, int a [][]){
         int[][] temp = new int[size][size];
         a[x][y] = 1;
         for(int i = 0;i < size;i++){
@@ -82,7 +87,7 @@ public class Main {
                 temp[i][j] = a[i][j];
             }
         }
-        return temp;
+        board = temp;
     }
 }
 
