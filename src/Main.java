@@ -13,7 +13,14 @@ public class Main {
     }
     public static void nQueen(int num) {
         Stack<Board> stk = new Stack<Board>();
+        for(int i = 0; i < num; i++){
+            stk.add(new Board(num));
+        }
+        for(int i = 0; i < num; i++){
+            for(int j = 0; j < num; j++){
 
+            }
+        }
 
     }
 
