@@ -11,14 +11,17 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num) {
+        int[][] board = new int[num][num];
+        printBoard(board);
+
 
     }
 
 
 
-    public static void printBoard(int[][] board, int num){
-        for(int i = 0; i<num; i++){
-            for(int j = 0;j<num;j++){
+    public static void printBoard(int[][] board){
+        for(int i = 0; i<board.length; i++){
+            for(int j = 0;j<board.length;j++){
                 if(board[i][j] == 0) {
                     System.out.print(" O ");
                 }else if(board[i][j] < 0) {
@@ -83,34 +86,3 @@ public class Main {
     }
 }
 
-class Position{
-    private int x;
-    private int y;
-
-    public String toString(){
-        String a = new String();
-        a += "( " + x + "," + y + " )";
-        return a;
-    }
-}
-class Solution{
-    Position[] pos;
-    int size;
-
-    Solution(int size){
-        this.size = size;
-        pos = new Position[size];
-    }
-
-    public String toString() {
-        String a = new String();
-        a += "Solution: \n";
-        for(int i = 0; i<pos.length; i++){
-            a += pos[i] + " ";
-        }
-        return a;
-    }
-}
-class Solutions{
-    ArrayList<Solution> solutions = new ArrayList<Solution>();
-}
