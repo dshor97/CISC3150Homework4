@@ -10,19 +10,39 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num) {
-        int size = num;
+        Board[] solutions;
+        int size = 0;
         int n = 1;
         ArrayList<Board> b = new ArrayList<Board>();
-        for(int i = 0; i<b.size(); i++){
-            b.add(new Board(num));
+        Board board = new Board(num);
+        for(int i =0;i< num;i++){
+            b.add(addQueen(0,i,num,board));
         }
+        System.out.println(b);
+        size = b.size();
+        solutions = new Board[size];
+        solutions = b.toArray(solutions);
+        b.clear();
+        System.out.println(b);
         while(n < num){
-            Board[] board = new Board[num];
-            int sizeb = 0;
+            for(int i=0;i<solutions.length;i++){
+                board = solutions[i];
 
+                for(int j =0;j<num;j++){
+                    if(board.board[n][j] == 0 ){
+                        b.add(addQueen(n,j,num,board));
+                    }
+                }
+            }
+            size = b.size();
+            solutions = new Board[size];
+            solutions = b.toArray(solutions);
+            b.clear();
+            n++;
         }
-
-
+        for(int i = 0;i<solutions.length;i++){
+            System.out.println(solutions[i]);
+        }
     }
 
     public static void printBoard(int[][] board){
@@ -117,7 +137,7 @@ class Board {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 if (board[i][j] == 1) {
-                    temp += "( " + i + ',' + j + " ) ,";
+                    temp += "( " + i + ',' + j + " )";
                 }
             }
         }
