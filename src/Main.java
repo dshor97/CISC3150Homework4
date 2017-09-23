@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -12,15 +10,17 @@ public class Main {
         nQueen(num);
     }
     public static void nQueen(int num) {
-        Stack<Board> stk = new Stack<Board>();
+        Queue<Board> que = new LinkedList<Board>();
+        que.add(new Board(num);
         for(int i = 0; i < num; i++){
-            stk.add(new Board(num));
-        }
-        for(int i = 0; i < num; i++){
+            Board b = que.remove();
             for(int j = 0; j < num; j++){
-
+                if(b.board[i][j] == 0 ){
+                    que.add(b.addQueen(i,j,num,b.board);
+                }
             }
         }
+
 
     }
 
@@ -46,6 +46,8 @@ class Board{
         }
         System.out.println();
     }
+
+    public
     public void addQueen(int x, int y,int size, int a [][]){
         int[][] temp = new int[size][size];
         a[x][y] = 1;
