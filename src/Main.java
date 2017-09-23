@@ -11,13 +11,13 @@ public class Main {
     }
     public static void nQueen(int num) {
         Queue<Board> que = new LinkedList<Board>();
+        ArrayList<Board> solutions = new ArrayList<Board>();
         que.add(new Board(num);
-        for(int i = 0; i < num; i++){
+        int i = 0;
+        while(i<num){
             Board b = que.remove();
-            for(int j = 0; j < num; j++){
-                if(b.board[i][j] == 0 ){
-                    que.add(b.addQueen(i,j,num,b.board);
-                }
+            for(int j=0;j<num;j++){
+                
             }
         }
 
@@ -30,6 +30,15 @@ class Board{
 
     Board(int num){
         board = new int[num][num];
+    }
+    Board(int[][] board){
+        int temp[][] = new int[board.length][board.length];
+        for(int i =0; i<board.length; i++){
+            for(int j = 0; j<board.length; j++){
+                temp[i][j] = board[i][j];
+            }
+        }
+        this.board = temp;
     }
     public void printBoard(int[][] board){
         for(int i = 0; i<board.length; i++){
@@ -47,8 +56,7 @@ class Board{
         System.out.println();
     }
 
-    public
-    public void addQueen(int x, int y,int size, int a [][]){
+    public Board addQueen(int x, int y,int size, int a [][]){
         int[][] temp = new int[size][size];
         a[x][y] = 1;
         for(int i = 0;i < size;i++){
@@ -96,7 +104,7 @@ class Board{
                 temp[i][j] = a[i][j];
             }
         }
-        board = temp;
+        return new Board(temp);
     }
 }
 
