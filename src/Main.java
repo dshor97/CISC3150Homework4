@@ -18,18 +18,19 @@ public class Main {
         for(int i =0;i< num;i++){
             b.add(addQueen(0,i,num,board));
         }
-        System.out.println(b);
         size = b.size();
         solutions = new Board[size];
         solutions = b.toArray(solutions);
         b.clear();
-        System.out.println(b);
+        for(int i = 0; i<size; i++){
+            System.out.println(solutions[i]);
+        }
+        System.out.println("Next");
         while(n < num){
             for(int i=0;i<solutions.length;i++){
                 board = solutions[i];
-
                 for(int j =0;j<num;j++){
-                    if(board.board[n][j] == 0 ){
+                    if(board.board[n][j] >= 0 ){
                         b.add(addQueen(n,j,num,board));
                     }
                 }
@@ -39,10 +40,15 @@ public class Main {
             solutions = b.toArray(solutions);
             b.clear();
             n++;
+            for(int i = 0; i<size; i++){
+                System.out.println(solutions[i]);
+            }
+            System.out.println("Next");
         }
         for(int i = 0;i<solutions.length;i++){
             System.out.println(solutions[i]);
         }
+
     }
 
     public static void printBoard(int[][] board){
