@@ -40,6 +40,7 @@ public class Main {
             b.clear();
             n++;
         }
+        System.out.println("There are " + solutions.length + " unique solutions.");
         System.out.println("The solutions are: \n");
         for(int i = 0;i<solutions.length;i++){
             System.out.println(solutions[i]);
