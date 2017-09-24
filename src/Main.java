@@ -39,6 +39,7 @@ public class Main {
             solutions = b.toArray(solutions);
             b.clear();
             n++;
+            //hello
         }
         System.out.println("The solutions are: \n");
         for(int i = 0;i<solutions.length;i++){
