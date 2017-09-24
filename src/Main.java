@@ -15,23 +15,22 @@ public class Main {
         int n = 1;
         ArrayList<Board> b = new ArrayList<Board>();
         Board board = new Board(num);
-        for(int i =0;i< num;i++){
-            b.add(addQueen(0,i,num,board));
+        for (int i = 0; i < num; i++) {
+            b.add(addQueen(0, i, num, board));
         }
         size = b.size();
         solutions = new Board[size];
         solutions = b.toArray(solutions);
         b.clear();
-        for(int i = 0; i<size; i++){
-            System.out.println(solutions[i]);
-        }
-        System.out.println("Next");
-        while(n < num){
-            for(int i=0;i<solutions.length;i++){
+
+        while (n < num) {
+            Board temp;
+            for(int i = 0;i<solutions.length;i++) {
                 board = solutions[i];
-                for(int j =0;j<num;j++){
-                    if(board.board[n][j] >= 0 ){
-                        b.add(addQueen(n,j,num,board));
+                for (int j = 0; j < num; j++) {
+                    if (board.board[n][j] == 0){
+                        temp = copyBoard(board);
+                        b.add(addQueen(n,j,num,temp));
                     }
                 }
             }
@@ -40,22 +39,30 @@ public class Main {
             solutions = b.toArray(solutions);
             b.clear();
             n++;
-            for(int i = 0; i<size; i++){
-                System.out.println(solutions[i]);
-            }
-            System.out.println("Next");
         }
+        System.out.println("The solutions are: \n");
         for(int i = 0;i<solutions.length;i++){
             System.out.println(solutions[i]);
+            System.out.println("Board looks like: ");
+            printBoard(solutions[i]);
         }
-
     }
+    public static Board copyBoard(Board b){
+        Board temp = new Board(b.board.length);
+        for(int i = 0;i<b.board.length;i++){
+            for(int j =0; j < b.board.length;j++){
+                temp.board[i][j] = b.board[i][j];
+            }
+        }
+        return temp;
+    }
+
 
     public static void printBoard(int[][] board){
         for(int i = 0; i<board.length; i++){
             for(int j = 0;j<board.length;j++){
                 if(board[i][j] == 0) {
-                    System.out.print(" O ");
+                    System.out.print(" 0 ");
                 }else if(board[i][j] < 0) {
                     System.out.print(" x ");
                 }else{
@@ -70,16 +77,18 @@ public class Main {
         printBoard(b.board);
     }
     public static Board addQueen(int x, int y,int size, Board board){
+
         int[][] temp = new int[size][size];
-        board.board[x][y] = 1;
+        temp[x][y] = 1;
+
         for(int i = 0;i < size;i++){
             if(i!= y){
-                board.board[x][i] -= 1;
+                temp[x][i] -= 1;
             }
         }
         for(int i = 0;i < size;i++){
-            if(i!= x){
-                board.board[i][y] -= 1;
+            if(i!= x ){
+                temp[i][y] -= 1;
             }
         }
         int row1 = x, col1 = y;
@@ -90,7 +99,7 @@ public class Main {
 
         while(row1 < size && col1 < size){
             if(row1 != x && col1 != y) {
-                board.board[row1++][col1++] -= 1;
+                temp[row1++][col1++] -= 1;
             }else{
                 row1++;
                 col1++;
@@ -105,19 +114,24 @@ public class Main {
 
         while(row2 < size && col2 >= 0){
             if(row2 != x && col2 != y) {
-                board.board[row2++][col2--] -= 1;
+                temp[row2++][col2--] -= 1;
             }else{
                 row2++;
                 col2--;
             }
         }
 
+        int [][] retTmp  = new int[size][size];
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                temp[i][j] = board.board[i][j];
+                if(temp[i][j] < 0 || board.board[i][j] < 0){
+                    retTmp[i][j] = -1;
+                }else if(temp[i][j] == 1 || board.board[i][j] == 1){
+                    retTmp[i][j] = 1;
+                }
             }
         }
-        return new Board(temp);
+        return new Board(retTmp);
     }
 }
 
